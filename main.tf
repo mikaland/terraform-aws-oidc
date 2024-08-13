@@ -3,11 +3,11 @@ data "aws_partition" "current" {}
 resource "aws_iam_openid_connect_provider" "oidc_provider" {
   client_id_list  = ["sts.${data.aws_partition.current.dns_suffix}"]
   thumbprint_list = [var.eks_oidc_root_ca_thumbprint]
-  url             = var.issuer
+  url             = var.eks_oidc_issuer
 
   tags = merge(
     {
-      Name = "${var.cluster_name}-eks-irsa"
+      Name = "${var.eks_cluster_name}-eks-irsa"
     },
     var.common_tags
   )

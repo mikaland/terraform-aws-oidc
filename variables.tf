@@ -1,3 +1,7 @@
+variable "eks_cluster_name" {
+  type = string
+}
+
 variable "eks_oidc_root_ca_thumbprint" {
   type        = string
   description = "Thumbprint of Root CA for EKS OIDC, Valid until 2037"
@@ -8,18 +12,15 @@ variable "eks_oidc_issuer" {
   type        = string
   description = "cluster oidc issuer"
 }
+
+variable "eks_cluster_name" {
+  type = string
+}
+
 variable "common_tags" {
   type = map(string)
   default = {
     owners      = "architect"
     environment = "dev"
   }
-}
-
-variable "cluster_name" {
-  type = string
-}
-
-variable "issuer" {
-  type = string
 }
