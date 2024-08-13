@@ -13,10 +13,6 @@ variable "eks_oidc_issuer" {
   description = "cluster oidc issuer"
 }
 
-variable "eks_cluster_name" {
-  type = string
-}
-
 variable "common_tags" {
   type = map(string)
   default = {
